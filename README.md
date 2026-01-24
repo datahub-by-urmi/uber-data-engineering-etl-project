@@ -9,12 +9,13 @@ This repository presents an end-to-end Uber data analytics project built on Goog
 - Mage transforms the raw dataset into dimension + fact tables (star schema) and exports the analytics-ready tables into BigQuery, which is then used for SQL analysis and Looker Studio dashboards.
 ![Architecture diagram](https://github.com/datahub-by-urmi/uber-data-engineering-etl-project/blob/main/uber_architecture_diagram.jpg)
 ### Tech Stack
-- Python: Data ingestion and transformation logic inside Mage blocks (data loader, transformer, exporter).
-- Mage (Mage.ai): Pipeline orchestration for ETL (block-based workflow, reproducible runs, modular code).
-- Google Cloud Storage (GCS): Source storage for the raw CSV dataset used by the pipeline.
-- Google Compute Engine (VM): Hosted Mage instance and executed the pipeline on a VM environment.
-- BigQuery (SQL + Data Warehouse): Loaded fact + dimension tables for analytics; wrote SQL queries to solve business questions and validate outputs.
-- Looker Studio: Built dashboards directly connected to BigQuery analytics tables.
+- Google Cloud Storage (GCS): Used as the source storage for the raw Uber trip CSV dataset ingested by the pipeline.
+- Google Compute Engine (VM): Hosted the Mage environment and executed the end-to-end ETL pipeline on a virtual machine.
+- Mage (Mage.ai): Used as the ETL orchestration tool to build a modular, block-based pipeline (data loader → transformer → exporter) with reproducible runs.
+- Python: Implemented data ingestion, transformation, and export logic inside Mage blocks using Pandas for data processing.
+- BigQuery (SQL + Data Warehouse): Stored analytics-ready fact and dimension tables; used SQL to validate data and answer business questions.
+- Looker Studio: Built dashboards and KPIs by directly connecting to BigQuery analytics tables for data exploration and reporting.
+  
 ### Pipeline Steps
 1) Data Ingestion (GCS → Mage): Uploaded the Uber trip dataset to Google Cloud Storage.
 Used a Mage Data Loader block (uber_loader_block.py) to load data from GCS into a Pandas DataFrame and validate row counts and schema.
@@ -22,7 +23,7 @@ Used a Mage Data Loader block (uber_loader_block.py) to load data from GCS into 
 2) Data Transformation: Implemented transformations in a Mage Transformer block (uber_transformation_block.py) to clean and standardize the raw data.
 Parsed pickup and dropoff timestamps, extracted time features, and standardized categorical fields such as rate codes and payment types.
 
-3) Data Modeling (Star Schema):Modeled the data into an analytics-friendly star schema with:
+3) Data Modeling (Star Schema): Modeled the data into an analytics-friendly star schema with:
 A fact table containing trip-level metrics (fare, tips, distance, vendor, payment type, etc.).
 Multiple dimension tables (datetime, passenger count, trip distance, rate code, payment type, and location where applicable).
 
@@ -33,14 +34,7 @@ Verified table creation, schema correctness, and successful data loads.
 Connected BigQuery tables to Looker Studio to build dashboards and KPIs for data exploration.
 
 ### What I Learned / Challenges
-
 - Debugged BigQuery export issues related to Python dependencies and schema/data-type alignment.
-
-- Faced performance bottlenecks when transforming a large dataset (~100K rows) in Mage due to converting outputs into dictionaries, which caused pipeline freezes.
-
-- Isolated the issue by testing transformations on a smaller dataset and learned that dictionary conversions are memory-intensive for large volumes.
-
-- Improved pipeline reliability by keeping transformations in Pandas DataFrames and modularizing the workflow into loader → transformer → exporter blocks.
-
+- Faced performance bottlenecks when transforming a large dataset (~100K rows) in Mage due to memory-intensive dictionary conversions. Isolated the issue by validating transformations on    a reduced dataset, then optimized the pipeline by retaining Pandas DataFrames instead of dictionaries, enabling reliable processing of the full dataset.
 - Designed a star schema in BigQuery to support efficient analytics and dashboarding.
 
