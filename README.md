@@ -1,4 +1,4 @@
-# Uber data analytics | Modern Data enguineering GCP project
+# Uber Data Engineering Pipeline on GCP (Mage + BigQuery)
 
 ### Introduction
 
@@ -7,5 +7,6 @@ This repository presents an end-to-end Uber data analytics project built on Goog
 ### Architecture diagram
 ![Architecture diagram](https://github.com/datahub-by-urmi/uber-data-engineering-etl-project/blob/main/uber_architecture_diagram.jpg)
 
+### Technology Used
 
 
