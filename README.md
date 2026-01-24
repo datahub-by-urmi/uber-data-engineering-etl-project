@@ -1,2 +1,9 @@
-# Uber data engineering project | Modern Data enguineering GCP project
-This is an end-to-end Uber data engineering and analytics project built on Google Cloud Platform using Mage for ETL, BigQuery for data warehousing and SQL analytics, and Looker Studio for dashboard-based insights.
+# Uber data analytics | Modern Data enguineering GCP project
+
+### Introduction
+
+This repository presents an end-to-end Uber data analytics project built on Google Cloud Platform. The pipeline leverages Mage for ETL orchestration, BigQuery for scalable data warehousing and SQL-based analytics, and Looker Studio to deliver interactive, dashboard-driven insights from Uber trip data.
+
+### Architecture diagram
+
+
