@@ -1,0 +1,27 @@
+# install python and pip
+sudo apt-get update -y
+sudo apt-get install python3-distutils
+sudo apt-get install python3-apt
+sudo apt-get install wget
+wget https://bootstrap.pypa.io/get-pip.py
+sudo apt update
+sudo apt install -y python3-venv
+sudo apt install -y python3-pip
+python3 -m venv venv
+source venv/bin/activate
+pip install pandas
+python
+import pandas as pd
+quit()
+source my_project_venv/bin/activate
+
+# install mage-ai
+pip install mage-ai
+source venv/bin/activate
+pip install mage-ai
+mage start
+
+# Google-cloud packages:
+source ~/mage_venv/bin/activate
+pip install google-cloud-bigquery
+pip install google-cloud-bigquery
