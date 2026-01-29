@@ -31,7 +31,7 @@ Verified successful table creation, schema correctness, and successful data load
 **5) Analytics & Reporting:** Wrote **BigQuery SQL queries** to analyze **fare trends**, trip patterns by time, and payment behavior.
 Connected BigQuery tables to **Looker Studio** to build dashboards and KPIs for data exploration.
 
-![Looker Studio Dashboard]()
+![Looker Studio Dashboard](https://github.com/datahub-by-urmi/uber-data-engineering-etl-project/blob/main/looker_dashboard.png)
 
 ### What I Learned / Challenges
 - Debugged **BigQuery export issues** related to Python dependencies and schema/data-type alignment.
