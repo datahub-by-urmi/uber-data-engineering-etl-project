@@ -31,6 +31,8 @@ Verified successful table creation, schema correctness, and successful data load
 **5) Analytics & Reporting:** Wrote **BigQuery SQL queries** to analyze **fare trends**, trip patterns by time, and payment behavior.
 Connected BigQuery tables to **Looker Studio** to build dashboards and KPIs for data exploration.
 
+![Looker Studio Dashboard]()
+
 ### What I Learned / Challenges
 - Debugged **BigQuery export issues** related to Python dependencies and schema/data-type alignment.
 - Faced performance bottlenecks when transforming a **large dataset (~100K rows)** in Mage due to memory-intensive dictionary conversions. Isolated the issue by validating transformations   on a reduced dataset, then optimized the pipeline by retaining **Pandas DataFrames** instead of dictionaries, enabling reliable processing of the full dataset.
