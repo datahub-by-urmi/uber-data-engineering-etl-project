@@ -7,7 +7,8 @@ This repository presents an **end-to-end Uber data analytics project** built on 
 ### Architecture diagram
 - Raw Uber trip data is stored in **Google Cloud Storage(GCS)**, then loaded into **Mage** running on a **Compute Engine VM** through a Python data loader block.
 - Mage transforms the raw dataset into **dimension + fact tables (star schema)** and exports the analytics-ready tables into **BigQuery**, which is then used for **SQL analysis** and **Looker Studio dashboards**.
-![Architecture diagram](https://github.com/datahub-by-urmi/uber-data-engineering-etl-project/blob/main/uber_architecture_diagram.jpg)
+![Architecture diagram](https://github.com/datahub-by-urmi/uber-data-engineering-etl-project/blob/main/uber_architecture_diagram.png)
+
 ### Tech Stack
 - **Google Cloud Storage (GCS)**: Used as the source storage for the raw Uber trip CSV dataset ingested by the pipeline.
 - **Google Compute Engine (VM)**: Hosted the Mage environment and executed the end-to-end ETL pipeline on a virtual machine.
